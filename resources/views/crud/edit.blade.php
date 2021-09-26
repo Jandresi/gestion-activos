@@ -1,7 +1,9 @@
 @extends('adminlte::page')
 
+@section('title', 'Edición de activo')
+
 @section('content_header')
-    <h1>VISTA DE CREAR REGISTROS</h1>
+    <h1>EDITAR REGISTRO</h1>
 @stop
 
 @section('content')

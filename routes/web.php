@@ -26,11 +26,3 @@ Route::get('/', function(){
 Route::get('dash', 'App\Http\Controllers\DashboardController@index');
 
 Route::resource('activos', 'App\Http\Controllers\ActivoController');
-
-Route::get('/dash/crud', function(){
-    return view('crud.index');
-});
-
-Route::get('/dash/crud/create', function(){
-    return view('crud.create');
-});
