@@ -47,7 +47,7 @@ return [
 
     'logo' => '<b>Gestión de</b> Activos',
     'logo_img' => 'vendor/adminlte/dist/img/cloud.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo_img_class' => 'brand-image img-circle',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Silva y Joan',
@@ -251,6 +251,14 @@ return [
         [
             'text'        => 'Lista De Activos',
             'url'         => 'activos',
+            'icon'        => 'fas fa-fw fa-tools',
+            //'label'       => '',
+            //'label_color' => 'success',
+            'icon_color' => 'white',
+        ],
+        [
+            'text'        => 'Tipos De Activos',
+            'url'         => 'tipo-activos',
             'icon'        => 'fas fa-fw fa-tools',
             //'label'       => '',
             //'label_color' => 'success',

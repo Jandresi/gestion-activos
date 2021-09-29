@@ -3,7 +3,7 @@
 @section('title', 'Creación de activo')
 
 @section('content_header')
-    <h1>CREAR NUEVO ACTIVO</h1>
+    <h1 class="text-center"><b>CREAR NUEVO ACTIVO</b></h1>
 @stop
 
 @section('content')

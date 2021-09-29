@@ -3,32 +3,32 @@
 @section('title', 'Activos en bodega')
 
 @section('content_header')
-    <h1>ACTIVOS REGISTRADOS</h1>
+    <div class="mb-2">
+        <h1 class="mb-3 text-center"><b>ACTIVOS REGISTRADOS</b></h1>
+        <center>
+            <a href="tipo-activos/create" class="btn btn-info">CREAR TIPO DE ACTIVO</a>
+        </center>
+    </div>
 @stop
 
 @section('content')
-    <a href="activos/create" class="btn btn-primary mb-3">CREAR</a>
 
-    <table id="activos" class="table table-striped mt-4 text-center" style="width: 100%">
+    <table id="tipos" class="table table-striped mt-4 text-center" style="width: 100%">
         <thead class="table-dark">
             <tr>
-                <th>CÓDIGO</th>
-                <th>NOMBRE</th>
-                <th>TIPO</th>
-                <th>CANTIDAD</th>
+                <th>TIPO DE ACTIVO</th>
+                <th>DESCRIPCIÓN DEL ACTIVO</th>
                 <th>ACCIONES</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($activos as $activo)
+            @foreach ($tipos as $tipo)
                 <tr>
-                    <td>{{ $activo->codigo_referencia }}</td>
-                    <td>{{ $activo->nombre_activo }}</td>
-                    <td>{{ $activo->tipo_activo }}</td>
-                    <td>{{ $activo->cantidad }}</td>
+                    <td>{{ $tipo->tipo }}</td>
+                    <td>{{ $tipo->descripcion }}</td>
                     <td>
-                        <form action="{{ route('activos.destroy', $activo->id) }}" method="POST">
-                            <a href="/activos/{{ $activo->id }}/edit" class="btn btn-info">Editar</a>
+                        <form action="{{ route('tipo-activos.destroy', $tipo->id) }}" method="POST">
+                            <a href="/tipo-activos/{{ $tipo->id }}/edit" class="btn btn-warning mr-2">Editar</a>
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Borrar</button>
@@ -52,7 +52,9 @@
     <script>
         $(document).ready(function() {
             $('#activos').DataTable({
-                "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]]
+                "lengthMenu": [
+                    [6, 10, 20, -1], [6, 10, 20, "All"]
+                ]
             });
         });
     </script>

@@ -23,6 +23,6 @@ Route::get('/', function(){
     return view('dash.index');
 })->name('dash'); */
 
-Route::get('dash', 'App\Http\Controllers\DashboardController@index');
-
 Route::resource('activos', 'App\Http\Controllers\ActivoController');
+
+Route::resource('tipo-activos', 'App\Http\Controllers\TipoActivoController');

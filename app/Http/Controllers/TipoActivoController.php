@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Activo;
 use App\Models\TipoActivo;
 
-class ActivoController extends Controller
+class TipoActivoController extends Controller
 {
     public function __construct(){
         $this->middleware('auth');
@@ -17,8 +16,8 @@ class ActivoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $activos = Activo::all();
-        return view('activos.index')->with('activos', $activos);
+        $tipos = TipoActivo::all();
+        return view('tipoActivos.index')->with('tipos', $tipos);
     }
 
     /**
@@ -26,8 +25,9 @@ class ActivoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(){
-        return view('activos.create');
+    public function create()
+    {
+        return view('tipoActivos.create');
     }
 
     /**
@@ -36,17 +36,16 @@ class ActivoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request){
-        $activos = new Activo();
+    public function store(Request $request)
+    {
+        $tipos = new TipoActivo();
 
-        $activos->codigo_referencia = $request->get('codigo_activo');
-        $activos->nombre_activo = $request->get('nombre_activo');
-        $activos->tipo_activo = $request->get('tipo_activo');
-        $activos->cantidad = $request->get('cantidad');
+        $tipos->tipo = $request->get('nombre_tipo');
+        $tipos->descripcion = $request->get('descripcion_tipo');
 
-        $activos->save();
+        $tipos->save();
 
-        return redirect('/activos');
+        return redirect('/tipo-activos');
     }
 
     /**
@@ -68,8 +67,7 @@ class ActivoController extends Controller
      */
     public function edit($id)
     {
-        $activo = Activo::find($id);
-        return view('activos.edit')->with('activo', $activo);
+        //
     }
 
     /**
@@ -81,15 +79,7 @@ class ActivoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $activo = Activo::find($id);
-
-        $activo->nombre_activo = $request->get('nombre_activo');
-        $activo->tipo_activo = $request->get('tipo_activo');
-        $activo->cantidad = $request->get('cantidad');
-
-        $activo->save();
-
-        return redirect('/activos');
+        //
     }
 
     /**
@@ -100,8 +90,6 @@ class ActivoController extends Controller
      */
     public function destroy($id)
     {
-        $activo = Activo::find($id);
-        $activo->delete();
-        return redirect('/activos');
+        //
     }
 }
