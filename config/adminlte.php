@@ -259,7 +259,7 @@ return [
         [
             'text'        => 'Tipos De Activos',
             'url'         => 'tipo-activos',
-            'icon'        => 'fas fa-fw fa-tools',
+            'icon'        => 'fas fa-fw fa-layer-group',
             //'label'       => '',
             //'label_color' => 'success',
             'icon_color' => 'white',

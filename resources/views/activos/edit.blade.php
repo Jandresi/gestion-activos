@@ -34,6 +34,7 @@
             <label for="" class="form-label">CANTIDAD</label>
             <input id="cantidad" name="cantidad" type="text" class="form-control" value="{{$activo->cantidad}}">
         </div>
+        
         <a href="/activos" class="btn btn-secondary">CANCELAR</a>
         <button class="btn btn-primary" type="submit">GUARDAR</button>
     </form>

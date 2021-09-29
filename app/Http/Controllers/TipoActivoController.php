@@ -65,9 +65,9 @@ class TipoActivoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id){
+        $tipo = TipoActivo::find($id);
+        return view('tipoActivos.edit')->with('tipo', $tipo);
     }
 
     /**
@@ -77,9 +77,15 @@ class TipoActivoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id){
+        $tipo = TipoActivo::find($id);
+
+        $tipo->tipo = $request->get('nombre_tipo');
+        $tipo->descripcion = $request->get('descripcion_tipo');
+
+        $tipo->save();
+
+        return redirect('/tipo-activos');
     }
 
     /**
@@ -88,8 +94,9 @@ class TipoActivoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id){
+        $tipo = TipoActivo::find($id);
+        $tipo->delete();
+        return redirect('/tipo-activos');
     }
 }

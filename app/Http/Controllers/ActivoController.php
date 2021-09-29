@@ -66,8 +66,7 @@ class ActivoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id){
         $activo = Activo::find($id);
         return view('activos.edit')->with('activo', $activo);
     }
@@ -79,8 +78,7 @@ class ActivoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         $activo = Activo::find($id);
 
         $activo->nombre_activo = $request->get('nombre_activo');
@@ -98,8 +96,7 @@ class ActivoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id){
         $activo = Activo::find($id);
         $activo->delete();
         return redirect('/activos');

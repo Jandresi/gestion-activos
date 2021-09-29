@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Activos en bodega')
+@section('title', 'Tipos de activos en bodega')
 
 @section('content_header')
     <div class="mb-2">
@@ -24,7 +24,7 @@
         <tbody>
             @foreach ($tipos as $tipo)
                 <tr>
-                    <td>{{ $tipo->tipo }}</td>
+                    <td><b>{{ $tipo->tipo }}</b></td>
                     <td>{{ $tipo->descripcion }}</td>
                     <td>
                         <form action="{{ route('tipo-activos.destroy', $tipo->id) }}" method="POST">

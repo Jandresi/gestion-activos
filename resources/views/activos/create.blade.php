@@ -17,7 +17,6 @@
             <label for="" class="form-label">NOMBRE</label>
             <input id="nombre_activo" name="nombre_activo" type="text" class="form-control">
         </div>
-
         <div class="mb-3">
             <label for="" class="form-label">TIPO DE ACTIVO</label>
             <select name="tipo_activo" id="tipo_activo" class="form-control">
