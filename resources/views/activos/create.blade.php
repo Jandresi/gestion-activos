@@ -20,10 +20,10 @@
         <div class="mb-3">
             <label for="" class="form-label">TIPO DE ACTIVO</label>
             <select name="tipo_activo" id="tipo_activo" class="form-control">
-                <option selected="selected" disabled>Seleccione...</option>
-                <option value="Medio guiado">Medio guiado</option>
-                <option value="Domiciliario">Domiciliario</option>
-                <option value="Red externa">Red externa</option>
+                <option value="" selected="selected" disabled>Seleccione una categoría...</option>
+                @foreach ($tipos as $tipo)
+                    <option value="{{$tipo->id}}">{{$tipo->tipo}}</option>
+                @endforeach
             </select>
         </div>
 

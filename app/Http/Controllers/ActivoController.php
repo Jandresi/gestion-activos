@@ -17,7 +17,8 @@ class ActivoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $activos = Activo::all();
+        //$activos = Activo::all();
+        $activos = TipoActivo::join('activos', 'tipo_activos.id', '=', 'activos.tipo_activo')->get();
         return view('activos.index')->with('activos', $activos);
     }
 
@@ -27,7 +28,8 @@ class ActivoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        return view('activos.create');
+        $tipos = TipoActivo::all();
+        return view('activos.create')->with('tipos', $tipos);
     }
 
     /**
@@ -68,7 +70,8 @@ class ActivoController extends Controller
      */
     public function edit($id){
         $activo = Activo::find($id);
-        return view('activos.edit')->with('activo', $activo);
+        $tipos = TipoActivo::all();
+        return view('activos.edit')->with('activo', $activo)->with('tipos', $tipos);
     }
 
     /**

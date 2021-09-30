@@ -28,7 +28,7 @@
                 <tr>
                     <td>{{ $activo->codigo_referencia }}</td>
                     <td>{{ $activo->nombre_activo }}</td>
-                    <td>{{ $activo->tipo_activo }}</td>
+                    <td>{{ $activo->tipo }}</td>
                     <td>{{ $activo->cantidad }}</td>
                     <td>
                         <form action="{{ route('activos.destroy', $activo->id) }}" method="POST">

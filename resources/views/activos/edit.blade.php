@@ -24,9 +24,9 @@
             <label for="" class="form-label">TIPO DE ACTIVO</label>
             <select name="tipo_activo" id="tipo_activo" class="form-control">
                 <option value="{{$activo->tipo_activo}}"  selected="selected">{{$activo->tipo_activo}}</option>
-                <option value="Medio guiado">Medio guiado</option>
-                <option value="Domiciliario">Domiciliario</option>
-                <option value="Red externa">Red externa</option>
+                @foreach ($tipos as $tipo)
+                    <option value="{{$tipo->id}}">{{$tipo->tipo}}</option>
+                @endforeach
             </select>
         </div>
 
