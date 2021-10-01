@@ -273,7 +273,7 @@ return [
             'icon_color' => 'white',
         ],
         [
-            'text'        => 'Crear Receptor',
+            'text'        => 'Receptores',
             'url'         => 'receptores',
             'icon'        => 'fas fa-fw fa-user-edit',
             //'label'       => '',

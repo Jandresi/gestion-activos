@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Receptor;
 use Illuminate\Http\Request;
 
 class ReceptorController extends Controller
@@ -13,7 +14,8 @@ class ReceptorController extends Controller
      */
     public function index()
     {
-        //
+        $receptores = Receptor::all();
+        return view('receptores.index')->with('receptores', $receptores);
     }
 
     /**
@@ -23,7 +25,7 @@ class ReceptorController extends Controller
      */
     public function create()
     {
-        //
+        return view ('receptores.create');
     }
 
     /**
@@ -34,7 +36,15 @@ class ReceptorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $receptores = new Receptor();
+
+        $receptores->id = $request->get('id');
+        $receptores->nombre_receptor = $request->get('nombres');
+        $receptores->cargo = $request->get('cargo');
+
+        $receptores->save();
+
+        return redirect('/receptores');
     }
 
     /**

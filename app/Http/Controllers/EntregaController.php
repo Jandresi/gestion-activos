@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PedidoController extends Controller
+class EntregaController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +16,7 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        //
+        return view('entregas.index');
     }
 
     /**

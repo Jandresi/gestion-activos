@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePedidosTable extends Migration
+class Entregas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreatePedidosTable extends Migration
      */
     public function up()
     {
-        Schema::create('pedidos', function (Blueprint $table) {
+        Schema::create('entregas', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('creador');
+            $table->bigInteger('elemento');
+            $table->integer('unidades');
+            $table->bigInteger('recibe');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreatePedidosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pedidos');
+        Schema::dropIfExists('entregas');
     }
 }

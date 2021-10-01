@@ -15,6 +15,8 @@ class CreateReceptoresTable extends Migration
     {
         Schema::create('receptores', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre_receptor', 80);
+            $table->string('cargo', 60);
             $table->timestamps();
         });
     }

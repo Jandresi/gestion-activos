@@ -26,3 +26,7 @@ Route::get('/', function(){
 Route::resource('activos', 'App\Http\Controllers\ActivoController');
 
 Route::resource('tipo-activos', 'App\Http\Controllers\TipoActivoController');
+
+Route::resource('receptores', 'App\Http\Controllers\ReceptorController');
+
+Route::resource('entregas', 'App\Http\Controllers\EntregaController');
