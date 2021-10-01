@@ -64,9 +64,9 @@ class ReceptorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id){
+        $receptor = Receptor::find($id);
+        return view('receptores.edit')->with('receptor', $receptor);
     }
 
     /**
@@ -78,7 +78,15 @@ class ReceptorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $receptor = Receptor::find($id);
+
+        $receptor->id = $request->get('id');
+        $receptor->nombre_receptor = $request->get('nombres');
+        $receptor->cargo = $request->get('cargo');
+
+        $receptor->save();
+
+        return redirect('/receptores');
     }
 
     /**

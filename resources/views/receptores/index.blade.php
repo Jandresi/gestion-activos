@@ -29,7 +29,7 @@
                     <td>{{ $receptor->nombre_receptor }}</td>
                     <td>{{ $receptor->cargo }}</td>
                     <td>
-                        <a href="/activos/{{ $receptor->id }}/edit" class="btn btn-warning mr-2">Editar</a>
+                        <a href="/receptores/{{ $receptor->id }}/edit" class="btn btn-warning mr-2">Editar</a>
                     </td>
                 </tr>
             @endforeach
