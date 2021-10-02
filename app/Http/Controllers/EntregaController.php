@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Activo;
+use App\Models\Receptor;
+use App\Models\Entrega;
 use Illuminate\Http\Request;
 
 class EntregaController extends Controller
@@ -14,9 +18,9 @@ class EntregaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('entregas.index');
+    public function index(){
+        $entregas = Entrega::all();
+        return view('entregas.index')->with('entregas', $entregas);
     }
 
     /**
@@ -26,7 +30,7 @@ class EntregaController extends Controller
      */
     public function create()
     {
-        //
+        return view('entregas.create');
     }
 
     /**

@@ -1,43 +1,33 @@
 @extends('adminlte::page')
 
-@section('title', 'Activos en bodega')
+@section('title', 'Pedidos')
 
 @section('content_header')
     <div class="mb-2">
-        <h1 class="mb-3 text-center"><b>ACTIVOS REGISTRADOS</b></h1>
-        <center>
-            <a href="activos/create" class="btn btn-info">CREAR ACTIVO</a>
-        </center>
+        <h1 class="mb-3 text-center p-2"><b>HISTORIAL DE PEDIDOS</b></h1>
     </div>
 @stop
 
 @section('content')
 
-    <table id="activos" class="table table-striped mt-4 text-center" style="width: 100%">
+    <table id="entregas" class="table table-striped mt-4 text-center" style="width: 100%">
         <thead class="table-dark">
             <tr>
-                <th>CÓDIGO</th>
-                <th>NOMBRE</th>
-                <th>TIPO</th>
-                <th>CANTIDAD</th>
-                <th>ACCIONES</th>
+                <th>FECHA</th>
+                <th>ENTREGA</th>
+                <th>RECIBE</th>
+                <th>ELEMENTO ENTREGADO</th>
+                <th>UNIDADES</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($activos as $activo)
+            @foreach ($entregas as $entrega)
                 <tr>
-                    <td>{{ $activo->codigo_referencia }}</td>
-                    <td>{{ $activo->nombre_activo }}</td>
-                    <td>{{ $activo->tipo }}</td>
-                    <td>{{ $activo->cantidad }}</td>
-                    <td>
-                        <form action="{{ route('activos.destroy', $activo->id) }}" method="POST">
-                            <a href="/activos/{{ $activo->id }}/edit" class="btn btn-warning mr-2">Editar</a>
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Borrar</button>
-                        </form>
-                    </td>
+                    <td>{{ $entrega->created_at }}</td>
+                    <td>{{ $entrega->creador }}</td>
+                    <td>{{ $entrega->recibe }}</td>
+                    <td>{{ $entrega->elemento }}</td>
+                    <td>{{ $entrega->unidades }}</td>
                 </tr>
             @endforeach
         </tbody>
@@ -55,7 +45,7 @@
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#activos').DataTable({
+            $('#entregas').DataTable({
                 "lengthMenu": [
                     [6, 10, 20, -1],
                     [6, 10, 20, "All"]

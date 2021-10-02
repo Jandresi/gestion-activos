@@ -13,7 +13,7 @@ class CreateReceptoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('receptores', function (Blueprint $table) {
+        Schema::create('receptors', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_receptor', 80);
             $table->string('cargo', 60);

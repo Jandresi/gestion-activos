@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <form action="/activos" method="POST">
+    <form action="/entregas" method="POST">
         @csrf
         <div class="mb-3">
             <label for="" class="form-label">CÓDIGO DE PRODUCTO</label>

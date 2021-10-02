@@ -13,7 +13,7 @@ class TipoActivoTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_activo', function (Blueprint $table) {
+        Schema::create('tipo_activos', function (Blueprint $table) {
             $table->id();
             $table->string('tipo', 60);
             $table->string('descripcion', 100);

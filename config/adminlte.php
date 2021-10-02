@@ -247,7 +247,24 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        ['header' => 'PESTAÑAS DE GESTIÓN'],
+        ['header' => 'GESTIÓN PRIMARIA'],
+        [
+            'text'        => 'Historial de entregas',
+            'url'         => 'entregas',
+            'icon'        => 'fas fa-fw fa-scroll',
+            //'label'       => '',
+            //'label_color' => 'success',
+            'icon_color' => 'white',
+        ],
+        [
+            'text'        => 'Entregar Pedido',
+            'url'         => 'entregas/create',
+            'icon'        => 'fas fa-fw fa-hand-holding-medical',
+            //'label'       => '',
+            //'label_color' => 'success',
+            'icon_color' => 'white',
+        ],
+        ['header' => 'GESTIÓN SECUNDARIA'],
         [
             'text'        => 'Lista De Activos',
             'url'         => 'activos',
@@ -265,14 +282,6 @@ return [
             'icon_color' => 'white',
         ],
         [
-            'text'        => 'Entregar Pedido',
-            'url'         => 'entregas',
-            'icon'        => 'fas fa-fw fa-scroll',
-            //'label'       => '',
-            //'label_color' => 'success',
-            'icon_color' => 'white',
-        ],
-        [
             'text'        => 'Receptores',
             'url'         => 'receptores',
             'icon'        => 'fas fa-fw fa-user-edit',
@@ -280,14 +289,14 @@ return [
             //'label_color' => 'success',
             'icon_color' => 'white',
         ],
-        [
+        /* [
             'text'        => 'Ver Reportes',
             'url'         => 'reportes',
             'icon'        => 'fas fa-fw fa-chart-line',
             //'label'       => '',
             //'label_color' => 'success',
             'icon_color' => 'white',
-        ],
+        ], */
         /* ['header' => 'Configuración de cuenta'],
         [
             'text' => 'Perfil de usuario',

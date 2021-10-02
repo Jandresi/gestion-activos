@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Entregas extends Migration
+class CreateEntregasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,11 +15,15 @@ class Entregas extends Migration
     {
         Schema::create('entregas', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('creador');
-            $table->bigInteger('elemento');
+            $table->bigInteger('creador')->unsigned();
+            $table->bigInteger('elemento')->unsigned();
             $table->integer('unidades');
-            $table->bigInteger('recibe');
+            $table->bigInteger('recibe')->unsigned();
             $table->timestamps();
+
+            $table->foreign('creador')->references('id')->on('users');
+            $table->foreign('elemento')->references('id')->on('activos');
+            $table->foreign('recibe')->references('id')->on('receptors');
         });
     }
 

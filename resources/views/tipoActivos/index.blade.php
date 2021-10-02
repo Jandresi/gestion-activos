@@ -31,7 +31,7 @@
                             <a href="/tipo-activos/{{ $tipo->id }}/edit" class="btn btn-warning mr-2">Editar</a>
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Borrar</button>
+                            {{-- <button type="submit" class="btn btn-danger">Borrar</button> --}}
                         </form>
                     </td>
                 </tr>
@@ -51,7 +51,7 @@
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#activos').DataTable({
+            $('#tipos').DataTable({
                 "lengthMenu": [
                     [6, 10, 20, -1], [6, 10, 20, "All"]
                 ]
