@@ -13,7 +13,7 @@
     <table id="entregas" class="table table-striped mt-4 text-center" style="width: 100%">
         <thead class="table-dark">
             <tr>
-                <th>FECHA</th>
+                <th>FECHA Y HORA</th>
                 <th>ENTREGA</th>
                 <th>RECIBE</th>
                 <th>ELEMENTO ENTREGADO</th>
@@ -24,14 +24,17 @@
             @foreach ($entregas as $entrega)
                 <tr>
                     <td>{{ $entrega->created_at }}</td>
-                    <td>{{ $entrega->creador }}</td>
-                    <td>{{ $entrega->recibe }}</td>
-                    <td>{{ $entrega->elemento }}</td>
+                    <td>{{ $entrega->name }}</td>
+                    <td>{{ $entrega->nombre_receptor }}</td>
+                    <td>{{ $entrega->nombre_activo }}</td>
                     <td>{{ $entrega->unidades }}</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    @php
+        echo date_default_timezone_get();
+    @endphp
 @stop
 
 @section('css')

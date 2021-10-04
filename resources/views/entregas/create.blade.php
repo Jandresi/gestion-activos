@@ -1,37 +1,49 @@
 @extends('adminlte::page')
 
-@section('title', 'Creación de activo')
+@section('title', 'Entrega de activos')
 
 @section('content_header')
-    <h1 class="text-center"><b>CREAR NUEVO ACTIVO</b></h1>
+    <h1 class="text-center"><b>ENTREGAR ELEMENTOS</b></h1>
 @stop
 
 @section('content')
     <form action="/entregas" method="POST">
         @csrf
         <div class="mb-3">
-            <label for="" class="form-label">CÓDIGO DE PRODUCTO</label>
-            <input id="codigo_activo" name="codigo_activo" type="text" class="form-control">
+            <label for="" class="form-label">ENTREGA</label>
+            <select name="user" class="form-control">
+                @foreach ($sessions as $session)
+                        <option value="{{$session->user_id}}">{{$session->name}}</option>
+                @endforeach
+            </select>
         </div>
+
         <div class="mb-3">
-            <label for="" class="form-label">NOMBRE</label>
-            <input id="nombre_activo" name="nombre_activo" type="text" class="form-control">
+            <label for="" class="form-label">RECIBE</label>
+            <select name="receptor" class="form-control">
+                <option value="" selected disabled>Seleccione un receptor...</option>
+                @foreach ($receptors as $receptor)
+                        <option value="{{$receptor->id}}">{{$receptor->nombre_receptor}}</option>
+                @endforeach
+            </select>
         </div>
+
         <div class="mb-3">
-            <label for="" class="form-label">TIPO DE ACTIVO</label>
-            <select name="tipo_activo" id="tipo_activo" class="form-control">
-                <option value="" selected="selected" disabled>Seleccione una categoría...</option>
-                @foreach ($tipos as $tipo)
-                    <option value="{{$tipo->id}}">{{$tipo->tipo}}</option>
+            <label for="" class="form-label">ACTIVO A ENTREGAR</label>
+            <select name="activo" class="form-control">
+                <option value="" selected="selected" disabled>Seleccione el elemento a entregar...</option>
+                @foreach ($elementos as $elemento)
+                    <option value="{{$elemento->id}}">{{$elemento->codigo_referencia}} - {{$elemento->nombre_activo}}</option>
                 @endforeach
             </select>
         </div>
 
         <div class="mb-3">
             <label for="" class="form-label">CANTIDAD</label>
-            <input id="cantidad" name="cantidad" type="text" class="form-control">
+            <input id="cantidad" name="cantidad" type="number" class="form-control">
         </div>
-        <a href="/activos" class="btn btn-secondary">CANCELAR</a>
+
+        <a href="/entregas" class="btn btn-secondary">CANCELAR</a>
         <button class="btn btn-primary" type="submit">GUARDAR</button>
     </form>
 @stop
